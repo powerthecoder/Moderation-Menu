@@ -109,17 +109,18 @@ public class Main extends JavaPlugin implements Listener{
 		if (event.getSlot() == 1) {
 			// KICK
 			player.sendMessage(ChatColor.RED + "Kicking " + ChatColor.BOLD + target);
-			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "/ban " + target + " You have been banned from this server.");
+			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "/kick " + target + " You have been kicked from this server.");
 		}
 		if (event.getSlot() == 2) {
 			// OP
 			player.sendMessage(ChatColor.RED + "Adding Operator to " + ChatColor.BOLD + target);
-			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "/ban " + target + " You have been banned from this server.");
+			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "/op " + target);
+			target.sendMessage(ChatColor.GOLD + "You are apart of us now!");
 		}
 		if (event.getSlot() == 3) {
 			// KILL
 			player.sendMessage(ChatColor.RED + "Killing " + ChatColor.BOLD + target);
-			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "/ban " + target + " You have been banned from this server.");
+			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "/kill " + target);
 		}
 		if (event.getSlot() == 4) {
 			player.closeInventory();
