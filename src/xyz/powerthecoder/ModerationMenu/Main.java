@@ -103,26 +103,26 @@ public class Main extends JavaPlugin implements Listener{
 		Player target = Bukkit.getPlayer(savedArgs);
 		if (event.getSlot() == 0) {
 			// BAN
-			player.sendMessage(ChatColor.RED + "Banning " + ChatColor.BOLD + target);
-			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "/ban " + target + " You have been banned from this server.");
+			player.sendMessage(ChatColor.RED + "Banning " + ChatColor.BOLD + target.getName());
+			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "ban " + target.getName() + " You have been banned from this server.");
 		}
 		if (event.getSlot() == 1) {
 			// KICK
-			player.sendMessage(ChatColor.RED + "Kicking " + ChatColor.BOLD + target);
-			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "/kick " + target + " You have been kicked from this server.");
+			player.sendMessage(ChatColor.RED + "Kicking " + ChatColor.BOLD + target.getName());
+			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "kick " + target.getName() + " You have been kicked from this server.");
 		}
 		if (event.getSlot() == 2) {
 			// OP
-			player.sendMessage(ChatColor.RED + "Adding Operator to " + ChatColor.BOLD + target);
-			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "/op " + target);
+			player.sendMessage(ChatColor.RED + "Adding Operator to " + ChatColor.BOLD + target.getName());
+			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "op " + target.getName());
 			target.sendMessage(ChatColor.GOLD + "You are apart of us now!");
 		}
 		if (event.getSlot() == 3) {
 			// KILL
-			player.sendMessage(ChatColor.RED + "Killing " + ChatColor.BOLD + target);
-			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "/kill " + target);
+			player.sendMessage(ChatColor.RED + "Killing " + ChatColor.BOLD + target.getName());
+			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "kill " + target.getName());
 		}
-		if (event.getSlot() == 4) {
+		if (event.getSlot() == 8) {
 			player.closeInventory();
 		}
 		
@@ -137,8 +137,6 @@ public class Main extends JavaPlugin implements Listener{
 		
 		// Ban User
 		meta.setDisplayName(ChatColor.RED + "BAN");
-		List<String> lore = new ArrayList<String>();
-		meta.setLore(lore);
 		item.setItemMeta(meta);
 		inv.setItem(0, item);
 		
@@ -156,7 +154,7 @@ public class Main extends JavaPlugin implements Listener{
 		inv.setItem(2, item);
 		
 		// Kill User
-		item.setType(Material.SKELETON_SKULL);
+		item.setType(Material.BONE);
 		meta.setDisplayName(ChatColor.RED + "KILL");
 		item.setItemMeta(meta);
 		inv.setItem(3, item);
@@ -165,7 +163,7 @@ public class Main extends JavaPlugin implements Listener{
 		item.setType(Material.BARRIER);
 		meta.setDisplayName(ChatColor.RED + "Close");
 		item.setItemMeta(meta);
-		inv.setItem(4, item);
+		inv.setItem(8, item);
 		
 		
 		}
